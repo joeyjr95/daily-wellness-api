@@ -27,6 +27,7 @@ app.use('/api/averages', averageRouter);
 
 app.use(function errorHandler(error, req, res, next){
   let response;
+  console.log(error);
   if (NODE_ENV === 'production') {
     response = { error: {message: 'server error'} };
   } else {
