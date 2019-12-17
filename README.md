@@ -1,26 +1,27 @@
-# Express Boilerplate!
+# How You Doin Server
 
-This is a boilerplate project used for starting new projects!
+## Tech stack
 
-## Set up
+Node, Express, Knex, PostgreSQL, Mocha, Chai
 
-Complete the following steps to start a new project (NEW-PROJECT-NAME):
+## API Endpoints
 
-1. Clone this repository to your local machine `git clone BOILERPLATE-URL NEW-PROJECTS-NAME`
-2. `cd` into the cloned repository
-3. Make a fresh start of the git history for this project with `rm -rf .git && git init`
-4. Install the node dependencies `npm install`
-5. Move the example Environment file to `.env` that will be ignored by git and read by the express server `mv example.env .env`
-6. Edit the contents of the `package.json` to use NEW-PROJECT-NAME instead of `"name": "express-boilerplate",`
+### Overview
 
-## Scripts
+`A` -- requires `Authorization` header using Bearer  
+`JSON` -- requires Header `content-type: application/json`
 
-Start the application `npm start`
+| Method | Endpoint                                                                             | Usage                                         | Returns                   | Header Fields |
+| ------ | ------------------------------------------------------------------------------------ | --------------------------------------------- | ------------------------- | ------------- |
+| POST   | [/api/auth/login](#post-apiauthtoken)                                                | Authenticate a user                           | JWT                       | JSON          |
+| PUT    | /api/auth/refresh                                                                    | Re-authenticate a user                        | JWT                       | A / JSON      |
+| POST   | [/api/users](#post-apiusers)                                                         | Register a new user                           | User Object               | JSON          |
+| GET    | [/api/users](#get-apiusers)                                                          | Get account information for logged in user    | User Object               | A / JSON      |
 
-Start nodemon for the application `npm run dev`
+| POST   | [/api/reflections](#post-apireflections)                                                         | Create a new reflection                            | New reflection Object           | A / JSON      |
+| GET    | [/api/reflections](#get-apireflections)                                                          | Get all reflections user is assigned to             | Array of reflection objects     | A / JSON      |
+| PATCH  | [/api/reflections/reflections_id](#patch-apireflectionsreflection_id)                               | Edit a reflection                                   | Edited reflection Object        | A / JSON      |
+| DELETE | [/api/reflections/reflections_id](#delete-apireflectionsreflection_id)                              | Delete a reflection                                 | -                         | A             |
+| GET   | [/api/averages](#get-apiaverages)                                               | get averages for a User             | Object       | A / JSON      |
 
-Run the tests `npm test`
 
-## Deploying
-
-When your new project is ready for deployment, add a new Heroku application with `heroku create`. This will make a new git remote called "heroku" and you can then `npm run deploy` which will push to this remote's master branch.
